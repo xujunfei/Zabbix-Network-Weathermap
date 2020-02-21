@@ -355,6 +355,10 @@ class ConfigCreate(object):
             for option in self.template[section]:
                 self.map_config[section][option] = config_old[section][option]
 
+        for option in self.template['map']:
+            if option in ['bgcolor', 'fontsize']:
+                self.map_config['map'][option] = config_old['map'][option]
+
         for section in self.map_config:
             if 'node-' in section:
                 if config_old.get(section):
